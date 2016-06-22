@@ -3,41 +3,28 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link rel="stylesheet" href="/client/app/users/register/users.register.css" media="screen" title="no title" charset="utf-8">
   </head>
-  <body>
-    <link rel="stylesheet" href="/client/app/users/register/users.register.css">
-    <form class="container" ng-submit="vm.register()">
-      <div class="hcenter">
-        <h1>Register</h1>
-      </div>
-      <hr>
-      <div class="row">
-        <div class="col-50">
-          <label>Email</label>
-          <input class="form-control" type="email" ng-model="vm.user.email" required>
-        </div>
-        <div class="col-50">
-          <label>Password</label>
-          <input class="form-control" type="password" ng-model="vm.user.password" required>
-        </div>
+  <body class="hcenter">
+    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <div class="wrapper">
+      <h1 class="">Register</h1>
+      <br>
+      <p class="hcenter">To register for a free account please provide us with some basic information using
+      the form below. Please use valid credentials.</p>
+      <form class="form hcenter" ng-submit="vm.register()">
+
+        <input type="text" class="hcenter" placeholder="Username" style="width: 300px" ng-model="vm.user.email" required>
+<br>
+        <input type="password" class="hcenter" placeholder="Password" ng-model="vm.user.password" style="width: 300px" required>
         <br>
-        <div class="row">
-          <div class="col-33">
-            <label>First Name</label>
-            <input class="form-control" type="text" ng-model="vm.user.firstName" required>
-          </div>
-          <div class="col-33">
-            <label>Last Name</label>
-            <input class="form-control" type="text" ng-model="vm.user.lastName" required>
-          </div>
-        </div>
-      </div>
-      <hr>
-      <div class="row hcenter">
-        <button class="btn btn-submit">Submit</button>
-      </div>
-      <br>
-      <br>
-    </form>
+            <input type="text" class="hcenter" placeholder="First Name" ng-model="vm.user.firstName" style="width: 300px" required>
+            <br>
+            <input type="text" class="hcenter" placeholder="Last Name" ng-model="vm.user.lastName" style="width: 300px" required>
+            <br>
+        <input type="submit" class="submit" value="Register" style="width: 300px">
+      </form>
+    </div>
   </body>
 </html>

@@ -1,4 +1,4 @@
-namespace app {
+namespace app{
   export class UserRegisterController {
     public user: IUser;
 
