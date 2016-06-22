@@ -1,0 +1,38 @@
+import * as express from "express";
+import { User, IUserModel } from '../../users/user.model';
+
+let passport = require('passport');
+let FacebookStrategy = require('passport-facebook').Strategy;
+
+passport.use(new FacebookStrategy({
+    clientID: process.env.FACEBOOK_CLIENT_ID,
+    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    callbackURL: "http://localhost:3000/api/v1/auth/facebook/callback",
+    passReqToCallback: true
+  }, auth
+));
+
+
+export function auth(req, accessToken, refreshToken, profile, cb) {
+	User.findOne({ googleId: profile.id }).exec((err, user) => {
+		if(err) return cb(err);
+		if(user) {
+			req['tempUser'] = user;
+			return cb(null, user);
+		} else {
+			let u = new User();
+			u.firstName = profile.name.givenName;
+			u.facebookId = profile.id;
+			u.facebookToken = accessToken;
+			u.save((err, result) => {
+				if (err) return cb(err);
+				req['tempUser'] = result;
+				cb(null, result);
+			});
+		}
+	});
+}
+
+export function callback(req: express.Request, res: express.Response, next: Function) {
+	res.redirect('/?code=' + req['tempUser'].createJWT());
+}
