@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>stackOverflowCopy</title>
+    <base href="/" />
+    <link rel="stylesheet" href="/client/assets/bootswatch/paper.min.css">
+    <link rel="stylesheet" href="/client/shared/shared.css">
+  </head>
+  <body>
+    <navbar></navbar>
+    <div ui-view="" id="content"></div>
+
+    <!-- angular -->
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+
+    <!-- module -->
+    <script src="/client/shared/module.js"></script>
+    <script src="/client/app/users/users.module.js"></script>
+
+    <!-- authInterceptor -->
+    <script src="/client/shared/authinterceptor.js"></script>
+
+    <!-- service -->
+    <script src="/client/app/users/user.service.js"></script>
+
+    <!-- navbar -->
+    <script src="client/components/navbar/navbar.directive.js"></script>
+    <script src="client/components/navbar/navbar.controller.js"></script>
+
+    <!-- controller -->
+    <script src="client/app/users/register/users.register.controller.ts"></script>
+
+  </body>
+</html>
