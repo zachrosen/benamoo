@@ -19,12 +19,6 @@ mongoose.connect(MONGO_URL, (err) => {
     else console.log(`Connected to ${MONGO_URL}`);
 });
 
-// Render jade files for the client
-// TODO: add gulp task to compile jade to html, and send back that html instead of rendering jade
-app.get(/\/client.{0,}\/.+\.jade/, (req, res, next) => {
-    res.render(config.root + req.path);
-});
-
 passport.serializeUser(function(user, cb) {
   cb(null, user);
 });
