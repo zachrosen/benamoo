@@ -57,10 +57,10 @@ app.use((req, res, next) => {
 });
 
 app.use((err: any, req, res, next) => {
-    // if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'production')
+    if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'production')
         console.log(err);
-    // if (process.env.NODE_ENV === 'production')
-        // err = { status: err.status || 500, message: err.message || '' };
+    if (process.env.NODE_ENV === 'production')
+      err = { status: err.status || 500, message: err.message || '' };
     res.status(err.status).send(err);
 });
 

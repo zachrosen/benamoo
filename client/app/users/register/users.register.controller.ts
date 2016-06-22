@@ -4,7 +4,7 @@ namespace app{
 
     public register() {
       this.UserService.register(this.user).then((res) => {
-        this.$state.go('user main')
+        this.$state.go('user login')
       }, (err) => {
         alert(err);
       })

@@ -5,11 +5,38 @@
     <title></title>
     <link rel="stylesheet" href="/client/app/users/register/users.register.css" media="screen" title="no title" charset="utf-8">
   </head>
-  <body class="hcenter">
-    <link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-    <div class="wrapper">
-      <h1 class="">Register</h1>
+  <body>
+
+    <form class="container" ng-submit="vm.register()">
+      <div class="hcenter">
+        <h1>Register</h1>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-50">
+          <label>Email</label>
+          <input class="form-control" type="email" ng-model="vm.user.email" required>
+        </div>
+        <div class="col-50">
+          <label>Password</label>
+          <input class="form-control" type="password" ng-model="vm.user.password" required>
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-33">
+            <label>First Name</label>
+            <input class="form-control" type="text" ng-model="vm.user.firstName" required>
+          </div>
+          <div class="col-33">
+            <label>Last Name</label>
+            <input class="form-control" type="text" ng-model="vm.user.lastName" required>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <div class="row hcenter">
+        <button class="btn btn-submit">Submit</button>
+      </div>
       <br>
       <p class="hcenter">To register for a free account please provide us with some basic information using
       the form below. Please use valid credentials.</p>
