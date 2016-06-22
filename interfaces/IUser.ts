@@ -5,4 +5,7 @@ interface IUser {
   salt: string;
   firstName: string;
   lastName: string;
+
+  facebookId: string;
+  facebookToken: string;
 }

@@ -19,12 +19,6 @@ mongoose.connect(MONGO_URL, (err) => {
     else console.log(`Connected to ${MONGO_URL}`);
 });
 
-// Render jade files for the client
-// TODO: add gulp task to compile jade to html, and send back that html instead of rendering jade
-app.get(/\/client.{0,}\/.+\.jade/, (req, res, next) => {
-    res.render(config.root + req.path);
-});
-
 passport.serializeUser(function(user, cb) {
   cb(null, user);
 });
@@ -45,9 +39,8 @@ app.get('/', (req, res, next) => {
     res.sendFile(config.client + '/index.html');
 });
 
-app.use('/api/v1/auth', require('./api/auth/routes'));
-//app.use('/api/v1/pets', require('./api/pets/pet.routes'));
-app.use('/api/v1/users', require('./api/users/user.routes'));
+app.use('/api/v1/auth', require('./api/auth/facebook/routes'));
+app.use('/api/v1/users', require('./api/users/users.routes'));
 
 // if path starts with /client, /bower_components, or /api, send a 404
 app.get(/\/(client|bower_components|api).{0,}/, (req, res, next) => {

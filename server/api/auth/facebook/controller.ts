@@ -1,5 +1,5 @@
 import * as express from "express";
-import { User, IUserModel } from '../../users/user.model';
+import { User, IUserModel } from '../../users/users.model';
 
 let passport = require('passport');
 let FacebookStrategy = require('passport-facebook').Strategy;
