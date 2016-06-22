@@ -1,7 +1,18 @@
 namespace app {
   export class UserLoginController {
+    public user: IUser;
 
-    constructor() {
+    public register() {
+      this.UserService.login(this.user).then((res) => {
+        this.$state.go('user main')
+      }, (err) => {
+        alert(err);
+      })
+    }
+    constructor(
+      private UserService: app.UserService,
+      private $state: ng.ui.IStateService
+    ) {
 
     }
   }
