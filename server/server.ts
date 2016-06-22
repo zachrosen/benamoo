@@ -13,7 +13,7 @@ const MONGO_URL = process.env.MONGO_URL || 'mongodb://localhost/stackoverflowclo
 
 // mongoose connection
 //require('./api/pets/pet.model');
-require('./api/users/user.model');
+require('./api/users/users.model');
 mongoose.connect(MONGO_URL, (err) => {
     if (err) console.error(err);
     else console.log(`Connected to ${MONGO_URL}`);

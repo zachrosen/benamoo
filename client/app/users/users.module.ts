@@ -9,7 +9,7 @@ namespace app {
     })
     .state('user login', {
       url: '/login',
-      templateUrl: '/client/app/users/login/users/login.html',
+      templateUrl: '/client/app/users/login/users.login.html',
       controller: 'UserLoginController as vm'
     })
   });
