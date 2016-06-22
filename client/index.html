@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <title>app</title>
+    <base href="/" />
+    <link rel="stylesheet" href="http://bootswatch.com/paper/bootstrap.min.css">
+    <link rel="stylesheet" href="/client/shared/shared.css">
+</head>
+
+<body>
+    <navbar></navbar>
+    <div ui-view="" id="content"> </div>
+
+
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+
+    <!--Modules-->
+    <script src="client/shared/module.js"></script>
+    <script src="client/app/main/main.module.js"></script>
+
+
+    <!--Services-->
+
+
+
+
+
+
+    <!--Controllers-->
+
+<script src="client/app/main/questions/main.controller.js"></script>
+
+
+</body>
+
+</html>
