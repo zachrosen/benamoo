@@ -8,10 +8,21 @@ namespace app {
     private UserResource: IUserResource;
     public status = {
           _id: '',
-          email: '',
-          isAdmin: false
+          email: ''
         }
-        
+
+    public login(u: IUser) {
+      let q = this.$q.defer();
+      this.$http.post('/api/v1/users/login', u).then((res) => {
+        this.setToken(res.data['token']);
+        this.setUser();
+        q.resolve();
+      }, (err) => {
+        q.reject(err);
+      });
+      return q.promise;
+    }
+
     public register(u: IUser) {
       let q = this.$q.defer();
       this.$http.post('/api/v1/users/register', u).then((res) => {
@@ -25,15 +36,24 @@ namespace app {
       return q.promise;
     }
 
-    public setToken(token: string) {
-      this.$window.localStorage.setItem('token', token)
+    public logout() {
+      this.$window.localStorage.removeItem('token');
+      this.status._id = '';
+      this.status.email = '';
     }
 
     public setUser() {
       let u = JSON.parse( this.urlBase64Decode( this.$window.localStorage.getItem('token').split('.')[1] ) );
       this.status._id = u._id;
       this.status.email = u.email;
-      this.status.isAdmin = u.isAdmin;
+    }
+
+    public getToken() {
+      return this.$window.localStorage.getItem('token');
+    }
+
+    public setToken(token: string) {
+      this.$window.localStorage.setItem('token', token)
     }
 
     private urlBase64Decode(str) {
@@ -52,9 +72,12 @@ namespace app {
     constructor(
       private $http: ng.IHttpService,
       private $q: ng.IQService,
-      private $window: ng.IWindowService
+      private $window: ng.IWindowService,
+      private $resource: ng.resource.IResourceService
     ) {
-
+      if (this.getToken()) this.setUser();
+      this.UserResource = <IUserResource>$resource('/api/v1/users/:id',
+      null, {'update': {'method': 'PUT'}});
     }
   }
   angular.module('app').service('UserService', UserService);
