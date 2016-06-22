@@ -10,3 +10,12 @@ q.save((err, q) => {
   res.json(q);
 });
 }
+
+export function getAll (req: express.Request, res: express.Response, next) {
+let query = {};
+Question.find(query).exec((err, question) => {
+  if(err) return next(err);
+  res.json(question)
+})
+
+};

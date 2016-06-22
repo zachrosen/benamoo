@@ -7,3 +7,19 @@
        <button class="btn btn-success" type="submit" value="submit" >Submit</button>
      </div>
 </form>
+<br>
+<br>
+
+
+<div class ="container" style="min-width: 80%; max-width: 80%;" >
+<table class="table table-bordered table table-striped">
+  <thead>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="q in vm.questions">
+                        <td> {{q.question}} </td>
+                    </tr>
+                </tbody>
+            </table>
+
+</div>

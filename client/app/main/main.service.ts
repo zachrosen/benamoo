@@ -17,6 +17,11 @@ namespace app {
         return this.QuestionResource.save(question).$promise;
        }
 
+    public getAll() {
+               return this.QuestionResource.query();
+           }
+
+
 
     constructor ( private $http: ng.IHttpService,
         private $q: ng.IQService,
