@@ -12,11 +12,11 @@
       <h1 class="">Log In</h1>
       <p class="hcenter">To log in to your account please enter your username and password below.</p>
       <form class="form" ng-submit="vm.login()">
-        <input type="text" class="name" placeholder="Username" ng-model="vm.user.username" required="true">
+        <input type="text" class="name" placeholder="Username" ng-model="vm.user.username" required>
         <div>
           <p class="name-help">Please enter your username</p>
         </div>
-        <input type="password" placeholder="Password" ng-model="vm.user.password" required="true">
+        <input type="password" placeholder="Password" ng-model="vm.user.password" required>
          <div>
           <p class="email-help">Please enter your password</p>
         </div>
@@ -26,7 +26,6 @@
       <h3>Or Log In with Facebook</h3>
       <button class="btn btn-social btn-facebook" target="_blank" href="/api/v1/auth/facebook/auth" name="button"></button>
     </div>
-
     </div>
   </body>
 </html>
