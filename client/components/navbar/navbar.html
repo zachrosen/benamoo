@@ -1,0 +1,15 @@
+<link rel="stylesheet" href="/client/components/navbar/navbar.css">
+
+<div id="navbar">
+  <div>
+    <a ui-sref="main"><img src="http://www.socialtalent.co/wp-content/uploads/blog-content/so-logo.png"/></a>
+  </div>
+  <div class="nav-right" ng-show="!nav.status._id">
+    <span><a ui-sref="user login">Login</a></span>
+    <span style="margin-left: 7px; margin-right: 7px;"> /</span>
+    <span><a ui-sref="user register">Register</a></span>
+  </div>
+  <div class="nav-right" ng-show="nav.status._id">
+    <span><a ng-click="nav.logout()">{{ nav.status.email }} Logout</a></span>
+  </div>
+</div>
