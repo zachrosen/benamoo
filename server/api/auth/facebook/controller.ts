@@ -8,6 +8,7 @@ passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_CLIENT_ID,
     clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
     callbackURL: "http://localhost:3000/api/v1/auth/facebook/callback",
+    profileFields: ['id', 'name', 'emails'],
     passReqToCallback: true
   }, auth
   // function(accessToken, refreshToken, profile, cb) {
@@ -26,8 +27,11 @@ export function auth(req, accessToken, refreshToken, profile, cb) {
 		} else {
 			let u = new User();
 			u.firstName = profile.name.givenName;
+      u.lastName = profile.name.familyName;
+      u.email = profile.emails[0].value;
 			u.facebookId = profile.id;
 			u.facebookToken = accessToken;
+      console.log(profile);
 			u.save((err, result) => {
 				if (err) return cb(err);
 				req['tempUser'] = result;

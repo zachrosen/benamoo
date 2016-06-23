@@ -14,6 +14,9 @@ let userSchema = new mongoose.Schema({
   salt: String,
   firstName: String,
   lastName: String,
+
+  facebookId: String,
+  facebookToken: String
 });
 
 userSchema.method('hashPassword', function(password: string, done: Function) {
