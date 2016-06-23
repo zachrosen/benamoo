@@ -10,6 +10,7 @@
     <form class="container" ng-submit="vm.register()">
       <div class="hcenter">
         <h1>Register</h1>
+
       <p class="hcenter">To register for a free account please provide us with some basic information using
       the form below. Please use valid credentials.</p>
       <form class="form hcenter" ng-submit="vm.register()">
@@ -25,5 +26,9 @@
         <input type="submit" class="submit" value="Register" style="width: 300px">
       </form>
     </div>
+    <div class="hcenter">
+    <h4>Or Log In with Facebook</h4>
+    <a class="btn btn-block btn-social btn-facebook" target="_blank" href="/api/v1/auth/facebook/auth">Log in with Facebook</a>
+  </div>
   </body>
 </html>

@@ -39,7 +39,7 @@ app.get('/', (req, res, next) => {
     res.sendFile(config.client + '/index.html');
 });
 
-app.use('/api/v1/auth', require('./api/auth/facebook/routes'));
+app.use('/api/v1/auth', require('./api/auth/routes'));
 app.use('/api/v1/users', require('./api/users/users.routes'));
 
 // if path starts with /client, /bower_components, or /api, send a 404
