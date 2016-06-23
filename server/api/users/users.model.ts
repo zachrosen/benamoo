@@ -9,11 +9,14 @@ export interface IUserModel extends IUser, mongoose.Document {
 }
 
 let userSchema = new mongoose.Schema({
-  email: { type: String, required: true, unique: true, lowercase: true, trim: true },
-  password: { type: String, required: true },
+  email: { type: String, unique: true, lowercase: true, trim: true },
+  password: { type: String },
   salt: String,
   firstName: String,
   lastName: String,
+
+  facebookId: String,
+  facebookToken: String
 });
 
 userSchema.method('hashPassword', function(password: string, done: Function) {
